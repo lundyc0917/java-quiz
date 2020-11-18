@@ -1,0 +1,46 @@
+:root {
+  --darkBlue: #006c91;
+  --lightBlue: #00bfff;
+}
+  
+button {
+  margin: 1em;
+}
+  
+nav {
+  background-color: var(--darkBlue);  
+  color: var(--lightBlue);
+}
+  
+h1{
+  font-size: 30px;
+  color: white;
+}
+  
+.link:hover {
+  background-color: var(--lightBlue);
+  color: var(--darkBlue);
+}
+ 
+.details {
+  background-color: var(--lightBlue);
+  margin-top: 20px;
+  margin-bottom: 80px;
+  padding: 40px;
+} 
+  
+li {
+  height: 40px;
+  margin-bottom: 5px;
+  padding: 10px;
+  background-color: #003c4e;
+  color: white;
+  font-size: 24px;
+  line-height: 1.5;
+  list-style-type: none;
+}
+  
+li:hover {
+  background-color: #00a365;
+}
+  
