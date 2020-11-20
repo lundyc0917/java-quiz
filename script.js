@@ -8,115 +8,95 @@ var questionsEl = [
       "booleans"
     ],
     answer: "alerts"
-  }
+  },
+  {
+    questionEntry: "The condition in an if / else statement is enclosed within ____.",
+    choices: [
+      "parentheses", 
+      "quotes", 
+      "square brackets", 
+      "curly brackets"
+    ],
+    answer: "parentheses"
+  },
 ];
 
 // Set Variables
 var highscoreEl = document.getElementById("#highscore");
 var gameTimerEl = document.getElementById("#gameTimer");
 var mainEl = document.querySelector(".details");
+var startBtn = document.querySelector("#startButton");
+var question = document.querySelector("#question");
+var quiz =   document.querySelector(".quiz")
 var gameScore = 0;
 var gameLength = 0;
-var TimePassed = 0;
+var gameTimePassed = 0;
+var timePenalty = 0;
+var currentQuestion = 0;
 var gameStart;
-var quiz = {};
 
-// Set Initialize function
-init();
+init ();
+
+startBtn.addEventListener("click", startQuiz);
+startBtn.addEventListener("click", startTimer);
 
 function init() {
-  mainEl.innerHTML = "";
-  reset();
-  var startQuiz = document.createElement("button");
-  startQuiz.textContent = "Start Quiz";
-
-  mainEl.appendChild(startQuiz);
-
-  startQuiz.addEventListener("click", function () {
-    playQuiz(questionsEl);
-  });
-}
-// Reset values
-function reset() {
-  score = 0;
+  gameScore = 0;
   gameLength = 0;
-  TimePassed = 0;
-  gameStart;
+  gameTimePassed = 0;
+  timePenalty = 0;
+  currentQuestion = 0;
+  quiz.setAttribute("style", "visibility: visible;");
 }
 
-function playQuiz(questionsEl) {
-  quiz = showQuestion(questionsEl);
 
-  gameLength = quiz.length * 15;
-
-  startGameTimer();
-  presentQuestion();
+function startQuiz () {
+  startBtn.style.display = "none";
+  setTime ();
+  showQuestion();
 }
-// Get questions to appear
-// function buildQuiz(arr){
-//   var questArr = [];
-//   for (var i = 0; i < arr.length; i++) {
 
-//     questArr.push(arr[i]);
-//   }
-//   return questArr;
-// }
-
-function showQuestion() {
-  if ( quiz.length === 0 ) {
-    endOfGame();
-    return;
+function showQuestion(){
+  // for ( i = 0, i <= questionsEl.length; i++)
+  
+  for (i = 0; i < questionsEl[currentQuestion].choices.length; i++) {
+    if(gameLength <= 0) {
+    // showScores();
+    }
+    else {
+      // show question
+      var element = document.getElementById("question");
+      element.innerHTML = questionsEl[i].questionEntry;
+      console.log(element);
+      // show answer choices
+      var questionChoices = questionsEl[i].choices;
+      for(var i = 0; i < questionChoices.length; i++) {
+          var element = document.getElementById("choice" + i);
+          element.innerHTML = questionChoices[i];
+          
+      }
+    }
   }
-
-  curQuestion = quiz.pop();
-
-  mainEl.innerHTML = "";
-   
-  var question = document.createElement("h1");
-  question.textContent = curQuestion.questionEntry;
-  mainEl.appendChild(question)
-
-  var choiceBox = document.createElement("ul");
-  mainEl.appendChild(choiceBox);
-
-  for( var i=0; i<curQuestion.choices.length; i++ ) {
-    var listChoice = document.createElement("li");
-    listChoice.setAttribute("choice-value", curQuestion.choices[i]);
-    listChoice.setAttribute("id","questionNum-"+i);
-    listChoice.textContent = curQuestion.choices[i];
-    choiceBox.appendChild(listChoice)
-  }
-
-  choiceBox.addEventListener("click", function (){
-    scoreAnswer(curQuestion);
-  });
 }
+
 
 
 // Run Game Timer
 function setTime() {
   clearInterval(gameStart);
-  gameSeconds = gameLength;
+  gameLength = questionsEl.length * 15;
+  var timeRemaining = gameLength - gameTimePassed - timePenalty;
+  if (timeRemaining <= 0) {
+    clearInterval(gameLength);
+
+  }console.log(gameLength);
 }
 
-function scoreTime() {
-  gameTimerEl.textContent = gameLength - gameTimePassed;
-
-  if ( (gameLength - gameTimePassed) < 1 ) {
-   endOfGame();
-  }
-}
 
 function startTimer () {
   setTime();
 
   gameStart = setInterval(function() {
-    gameTimePassed++; 
-    scoreTime();
+    gameTimePassed++;
   }, 1000);
-}
-
-function stopTime() {
-  gameSeconds = 0;
-  clearInterval(gameStart);
 }

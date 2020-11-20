@@ -6,10 +6,17 @@
 button {
   margin: 1em;
 }
-  
-nav {
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.card {
   background-color: var(--darkBlue);  
   color: var(--lightBlue);
+  min-width: 50%;
+  max-width: 50%;
 }
   
 h1{
