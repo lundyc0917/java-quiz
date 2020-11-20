@@ -17,6 +17,7 @@ button {
   color: var(--lightBlue);
   min-width: 50%;
   max-width: 50%;
+  text-align: center;
 }
   
 h1{
