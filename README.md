@@ -33,5 +33,20 @@ The user is taken to the Top 5 Scores' page that displays the five highest score
 
 ## Code Example
 ```````````````````````
+// Check answers and display "correct" or "incorrect" at bottom of screen
+function showAnswers(cur) {
+  for (var i=0; i<cur.choices.length; i++) {
+    var questrow = document.querySelector("#result");
 
-`````````````````````````
+// Display correct/incorrect tag based on selection
+    if ( cur.choices[i] !== cur.answer ) {
+      questrow.setAttribute("style", "visibility: visible;");
+      questrow.textContent = "Incorrect";
+    } else {
+      questrow.setAttribute("style", "visibility: visible;");
+      questrow.textContent = "Correct";
+    }
+  }
+  setTimeout(showQuestion,500);
+}
+```````````````````````

@@ -1,40 +1,77 @@
 :root {
-  --darkBlue: #006c91;
-  --lightBlue: #00bfff;
+  --dark: #0f4900;
+  --light: #89ff7e;
+  --blue: #61daff;
 }
   
 button {
   margin: 1em;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-.card {
-  background-color: var(--darkBlue);  
-  color: var(--lightBlue);
-  min-width: 50%;
-  max-width: 50%;
-  text-align: center;
-}
-  
 h1{
+  font-size: 30px;
+  color: rgb(69, 3, 131);
+}
+
+.container {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.navbar {
+  background-color: var(--dark);  
+  color: var(--light);
+  padding: 0;
+  width: 100%;
+}
+
+#title {
+  padding: 15px;
   font-size: 30px;
   color: white;
 }
-  
-.link:hover {
-  background-color: var(--lightBlue);
-  color: var(--darkBlue);
+
+.link {
+  text-decoration: none;
 }
- 
-.details {
-  background-color: var(--lightBlue);
+
+.link:hover {
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+#details {
+  background-color: var(--light);
   margin-top: 20px;
-  margin-bottom: 80px;
   padding: 40px;
 } 
 
-  
+#resultBar{
+  background-color: var(--light);
+  color: var(--dark);
+  margin: 0;
+  padding-left:80px;
+}
+#result{
+  font-size: 40px;
+  text-align:start;
+  width: fit-content;
+  margin: 0;
+
+}
+
+li {
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #38004e;
+  color: white;
+  font-size: 1.5em;
+  line-height: 1.5;
+  list-style-type: none;
+}
+
+li:hover {
+  background-color: #a3006d;
+}

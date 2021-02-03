@@ -2,31 +2,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <title>JavaScript Quiz</title>
   </head>
 
-  <body class="container">
-    <div class= "card">
-      <a id="highscore" class="link">
-        View High Scores
-      </a>
-      <h1>Timed Quiz Game</h1>
-      <a class=timer>
-        Time left in Game:<span id="gameTimer"></span>
-      </a>
-    <div>
-      <section class="quiz">
-        <button id="startButton">Start Game</button>
-        <h2 id="question"></h2>
-        <div><button><span id="choice0"></span></button></div>
-        <div><button><span id="choice1"></span></button></div>
-        <div><button><span id="choice2"></span></button></div>
-        <div><button><span id="choice3"></span></button></div>
-      </section>
-    </div> 
-  </div>   
+  <body>
+    <nav class="navbar">
+      <div class="container">
+            <div id="highscore" class="link"> 
+              View High Scores
+            </div>
+
+            <h1 id="title">
+              Quiz Game
+            </h1>
+
+            <table id=timers style="visibility: hidden;">
+              <tr>
+                <td> 
+                  Time left: 
+                </td>
+                <td> 
+                  <span id="gameTimer" class="nav-item"></span> 
+                </td>
+              </tr>
+            </table>
+
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <section id="details"></section>
+      <div id="resultBar">
+        <p id="result" style="visibility: hidden;"></p>
+      </div>
+    </div>    
     <script src='./script.js'></script>
   </body>
   
