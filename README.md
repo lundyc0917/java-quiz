@@ -13,6 +13,7 @@ build | passing
 
 ## Screen Shots
 
+![quiz_screenshot](https://user-images.githubusercontent.com/71233342/106910394-2df18b00-66cf-11eb-8102-ea7a5b070cc0.png)
 
 
 ## Framework Used

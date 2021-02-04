@@ -9,7 +9,7 @@ var questionList = [
       "strings", 
       "booleans"
     ],
-    answer: "alerts"
+    answer:"alerts"
   },
   {
     questionEntry: "The condition in an if / else statement is enclosed within ____.",
@@ -19,7 +19,7 @@ var questionList = [
       "square brackets", 
       "curly brackets"
     ],
-    answer: "parentheses"
+    answer:"parentheses"
   },
   {
     questionEntry: "Which of the following best describes JavaScript?",
@@ -29,7 +29,7 @@ var questionList = [
       "a compiled scripting language.",
       "an object-oriented scripting language."
     ],
-    answer: "an object-oriented scripting language."
+    answer:"an object-oriented scripting language."
   },
   {
     questionEntry: "A very useful tool for used during development and debugging for printing content to the debugger is:",
@@ -39,7 +39,7 @@ var questionList = [
       "console log",
       "JavaScript"
     ],
-    answer: "console log"
+    answer:"console log"
   },
   {
     questionEntry: "Data is stored in localStorage as _____.",
@@ -49,7 +49,7 @@ var questionList = [
       "objects",
       "All of the Above"
     ],
-    answer: "strings"
+    answer:"strings"
   },
   {
     questionEntry: "When assigend to variables, what must string values be enclosed with?",
@@ -59,7 +59,7 @@ var questionList = [
       "quotes", 
       "curley brackets"
     ],    
-    answer: "quotes"
+    answer:"quotes"
   },
   {
     questionEntry: "Is JavaScript case sensitive?",
@@ -69,7 +69,7 @@ var questionList = [
       "Sometimes", 
       "Only when it decides to be"
     ],    
-    answer: "Yes"
+    answer:"Yes"
   },
   {
     questionEntry: "Arrays in JavaScript can be used to store ______.",
@@ -79,7 +79,7 @@ var questionList = [
       "objects", 
       "All of the Above"
     ],    
-    answer: "All of the Above"
+    answer:"All of the Above"
   },
   {
     questionEntry: "What does DOM stand for in JavaScript?",
@@ -89,7 +89,7 @@ var questionList = [
       "Decisions Over Meals", 
       "Data Object Modal"
     ],    
-    answer: "Document Object Model"
+    answer:"Document Object Model"
   },
   {
     questionEntry: "Which type of pop up box will allow a user to type a response?",
@@ -99,7 +99,7 @@ var questionList = [
       "prompt", 
       "confirm"
     ],    
-    answer: "prompt"
+    answer:"prompt"
   }
 ];
 
@@ -219,19 +219,18 @@ function showAnswers(cur) {
     var ansResult = document.querySelector("#result");
 
 // Display correct/incorrect tag based on selection
-    if ( cur.choices[i] !== cur.answer ) {
-      ansResult.setAttribute("style", "visibility: visible;");
-      ansResult.setAttribute("style", "background-color:#ff7575;")
-      ansResult.textContent = "Incorrect";
-    } else {
+    if ( cur.choices[i] === cur.answer ) {
       ansResult.setAttribute("style", "visibility: visible;");
       ansResult.setAttribute("style", "background-color:#61daff;");
       ansResult.textContent = "Correct";
+    } else {
+      ansResult.setAttribute("style", "visibility: visible;");
+      ansResult.setAttribute("style", "background-color:#ff7575;")
+      ansResult.textContent = "Incorrect";
     }
   }
   setTimeout(showQuestion,500);
 }
-
 
 // Run game timer
 // initalized in "startTimer" function
